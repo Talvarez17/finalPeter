@@ -1,0 +1,56 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Crear tarea</h4>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="guardar()" [formGroup]="Formulario">
+              <div class="row">
+                <div class="col-md-5">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Titulo" formControlName="titulo">
+                  </mat-form-field>
+                  <span class="form-text text-danger" *ngIf="campoEsValido('titulo')">
+                    Este campo es obligatorio
+                  </span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Descripción</label>
+                  <mat-form-field class="example-full-width">
+                    <textarea matInput placeholder="Descripción" formControlName="descripcion"></textarea>
+                  </mat-form-field>
+                  <span class="form-text text-danger" *ngIf="campoEsValido('descripcion')">
+                    Este campo es obligatorio
+                  </span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="fechacreacion" type="date">
+                  </mat-form-field>
+                  <span class="form-text text-danger" *ngIf="campoEsValido('fechacreacion')">
+                    Este campo es obligatorio
+                  </span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <button mat-raised-button [disabled]="!Formulario.valid || activo" type="submit" class="btn btn-primary pull-right">Crear tarea</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

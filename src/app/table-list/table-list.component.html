@@ -1,0 +1,34 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Lista de tareas</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="text-primary">
+                                    <th>Titulo</th>
+                                    <th>Descripción</th>
+                                    <th>Fecha de creación</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let L of Lista">
+                                        <td>{{ L.titulo }}</td>
+                                        <td>{{ L.descripcion }}</td>
+                                        <td>{{ L.fechacreacion | date:'d-MM-y' }}</td>
+                                        <td><button mat-raised-button type="button" class="btn btn-primary pull-right" [routerLink]="['/editar', L.id]">Editar</button></td>
+                                        <td><button mat-raised-button type="button" class="btn btn-danger pull-right" (click)="eliminar(L.id)">Eliminar</button></td>                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
